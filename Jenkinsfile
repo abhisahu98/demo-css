@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy Locally') {
             steps {
                 script {
-                    sh """
+                    bat """
                     docker stop my-website || exit 0
                     docker rm my-website || exit 0
                     docker run -d -p 81:81 --name my-website ${DOCKER_IMAGE}:${env.BUILD_NUMBER}
